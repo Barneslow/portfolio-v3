@@ -1,91 +1,71 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+"use client";
 
-const inter = Inter({ subsets: ['latin'] })
+import Image from "next/image";
+
+import HeroText from "@/components/HeroText";
+import SlideSwiper from "@/components/ui/SlideSwiper";
+import DescriptionText from "@/components/DescriptionText";
+import Project from "@/components/ui/Project";
+import Projects from "@/components/ui/Projects";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <section
+        id="hero"
+        className="flex item-center justify-center bg-gradient-to-t from-zinc-300 dark:bg-zinc-900 dark:from-zinc-900 px-10"
+      >
+        <div className="flex flex-col text-center items-center justify-center gap-8 min-h-screen max-w-8xl mt-20 md:text-left md:flex-row md:mt-0">
+          <HeroText />
+          <div className="flex justify-center items-center w-full">
+            <div className="border-zinc-900 rounded-full overflow-hidden border-8 dark:border-zinc-50 ">
+              <Image
+                src="/defaultimage.png"
+                alt="default image"
+                quality={100}
+                priority
+                style={{ objectFit: "cover" }}
+                width={400}
+                height={400}
+              />
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+      </section>
+      <section
+        id="skills"
+        className="flex justify-center items-center text-center mx-auto min-h-screen bg-gradient-to-b from-zinc-300 dark:bg-zinc-900 dark:from-zinc-900 px-10 py-24 md:flex-col pt-20"
+      >
+        <div className="flex flex-col text-center items-center justify-evenly gap-12 min-h-screen w-full max-w-8xl md:text-left md:mt-0">
+          <DescriptionText
+            heading="Hi, I'm Darrach, nice to meet you!"
+            text={`Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book.`}
+          />
+          <SlideSwiper />
         </div>
-      </div>
+      </section>
+      <section
+        id="projects"
+        className="flex justify-center items-center text-center mx-auto min-h-screen bg-gradient-to-t from-zinc-300 dark:bg-zinc-900 dark:from-zinc-900 md:flex-col pt-20 px-10"
+      >
+        <div className="flex flex-col text-center items-center justify-evenly gap-24 min-h-screen w-full max-w-8xl md:text-left md:mt-0 py-24">
+          <DescriptionText
+            heading="Check out some of my latest work"
+            text={`My programming projects have taken me on a journey of continuous learning and growth. I've built dynamic web applications from scratch, learning new programming languages and frameworks as I go. Each project has been a thrilling challenge that's fueled my passion further!`}
+          />
+          <Projects />
+        </div>
+      </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <section
+        id="collab"
+        className="flex justify-center items-center text-center mx-auto min-h-screen bg-gradient-to-b from-zinc-300 dark:bg-zinc-900 dark:from-zinc-900 md:flex-col pt-20"
+      ></section>
+      <Footer />
+    </>
+  );
 }
