@@ -5,6 +5,8 @@ import { ChartIcon, CodeIcon, PaintBrushIcon } from "../icons/SkillsIcons";
 
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
+import Image from "next/image";
+import AnimatedList from "./AnimatedList";
 
 export default function SlideSwiper() {
   const animation = useAnimation();
@@ -43,7 +45,7 @@ export default function SlideSwiper() {
     >
       <motion.div
         variants={child}
-        className="flex flex-col items-center justify-center h-full text-center p-5 space-y-4 border-t-green-800 border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-green-500"
+        className="flex flex-col items-center justify-center h-full text-center p-5 space-y-3 border-t-green-800 border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-green-500"
       >
         <div className="w-24 h-24 p-2 bg-zinc-50 rounded-3xl border-black border-2">
           <PaintBrushIcon />
@@ -73,7 +75,7 @@ export default function SlideSwiper() {
 
       <motion.div
         variants={child}
-        className="flex flex-col items-center justify-center h-full text-center p-5 space-y-4 border-t-blue-800 border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-blue-500"
+        className="flex flex-col items-center justify-center h-full text-center p-5 space-y-3 border-t-blue-800 border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-blue-500"
       >
         <div className="w-24 h-24 p-2 bg-zinc-50 rounded-3xl border-black border-2">
           <CodeIcon />
@@ -88,19 +90,12 @@ export default function SlideSwiper() {
         <h5 className="text-2xl font-extrabold text-blue-800 border-b-2 border-zinc-300  dark:text-blue-500">
           Tools Used
         </h5>
-        <ul className="flex flex-col space-y-2">
-          <li className="text-lg">Javascript / HTML / CSS</li>
-          <li className="text-lg">React / NextJS</li>
-          <li className="text-lg">React-Native</li>
-          <li className="text-lg">NodeJS</li>
-          <li className="text-lg">MongoDB / Airtable / Firebase</li>
-          <li className="text-lg">Pug</li>
-        </ul>
+        <AnimatedList />
       </motion.div>
 
       <motion.div
         variants={child}
-        className="flex flex-col items-center justify-center h-full text-center p-5 space-y-4 border-t-red-800 border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-red-500"
+        className="flex flex-col items-center justify-center h-full text-center p-5 space-y-3 border-t-red-800 border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-red-500"
       >
         <div className="w-24 h-24 p-2 bg-zinc-50 rounded-3xl border-black border-2">
           <ChartIcon />

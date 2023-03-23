@@ -1,8 +1,4 @@
-import "./globals.css";
-
-import ThemeProvider from "@/theme/ThemeProvider";
 import { Lato } from "next/font/google";
-import Navbar from "@/components/Nav";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -10,8 +6,8 @@ const lato = Lato({
 });
 
 export const metadata = {
-  title: "Project Portfolio",
-  description: "A display of my work to date",
+  title: "Project Page",
+  description: "Current Project",
 };
 
 export default function RootLayout({
@@ -22,10 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={lato.className}>
-        <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
-        </ThemeProvider>
+        <main className="">{children}</main>
       </body>
     </html>
   );

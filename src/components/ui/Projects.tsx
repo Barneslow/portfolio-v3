@@ -1,7 +1,14 @@
+"use client";
+
+import { IProject } from "@/app/projects/[id]/page";
 import { useInView } from "react-intersection-observer";
 import Project from "./Project";
 
-const Projects = () => {
+type ProjectsProps = {
+  projects: IProject[];
+};
+
+const Projects = ({ projects }: ProjectsProps) => {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
 
   return (
@@ -9,12 +16,9 @@ const Projects = () => {
       ref={ref}
       className="grid grid-cols-1 gap-6 xl:grid-cols-2 2xl:grid-cols-3"
     >
-      <Project inView={inView} delay={0} />
-      <Project inView={inView} delay={1} />
-      <Project inView={inView} delay={2} />
-      <Project inView={inView} delay={3} />
-      <Project inView={inView} delay={4} />
-      <Project inView={inView} delay={5} />
+      {projects.map((prj, index) => (
+        <Project inView={inView} delay={index} project={prj} />
+      ))}
     </main>
   );
 };

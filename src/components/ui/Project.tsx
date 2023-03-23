@@ -1,9 +1,16 @@
+import { IProject } from "@/app/projects/[id]/page";
 import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 
-const Project = ({ delay, inView }) => {
+type ProjectProps = {
+  delay: number;
+  inView: boolean;
+  project: IProject;
+};
+
+const Project = ({ delay, inView, project }: ProjectProps) => {
   const animation = useAnimation();
 
   useEffect(() => {
@@ -43,20 +50,16 @@ const Project = ({ delay, inView }) => {
     >
       <Image
         alt="dummy text"
-        src="/images/barneslowProductivity.png"
+        src={`/images/${project.image}`}
         width={100}
         height={100}
         sizes="100vw"
         className="w-full h-full"
       />
-      <div className="absolute flex flex-col gap-6 p-10 items-center justify-center top-0 bottom-0 right-0 left-0 duration-300 opacity-0 bg-gradient-to-b from-purple-700 to-purple-900 group-hover:opacity-100 group-hover:scale-105">
-        <p className="text-white text-lg">
-          Productivity website which allows users to track study sessions, log
-          daily tasks, break down productivity with help of visual graphs and
-          more!
-        </p>
+      <div className="absolute flex flex-col gap-6 p-10 items-center justify-center top-0 bottom-0 right-0 left-0 duration-300 opacity-0 bg-gradient-to-br from-indigo-600 to-purple-900 group-hover:opacity-100 group-hover:scale-105">
+        <p className="text-white text-lg">{project.description}</p>
         <Link
-          href={""}
+          href={`/projects/${project.id}`}
           className="px-10 py-4 bg-zinc-700 rounded-3xl hover:bg-zinc-50 hover:text-zinc-900"
         >
           See More
