@@ -75,5 +75,71 @@
     "video": "/testVideo.mov",
     "build": ["Javascript"],
     "github": "https://github.com/Barneslow/forkifycourseJS"
+  },
+  {
+    "id": "7",
+    "name": "Barneslow Clothing",
+    "description": "Front end Ecommerce website built using React/Redux. Use of Stripe for payment processing",
+    "text": "dummy",
+    "url": "https://barneslow-clothing.netlify.app/",
+    "image": "barneslowClothing.png",
+    "video": "barneslowClothing.mov",
+    "build": ["React", "Firebase"],
+    "github": "https://github.com/Barneslow/barneslow-clothing"
+  },
+  {
+    "id": "8",
+    "name": "Barneslow Clothing",
+    "description": "Front end Ecommerce website built using React/Redux. Use of Stripe for payment processing",
+    "text": "dummy",
+    "url": "https://barneslow-clothing.netlify.app/",
+    "image": "barneslowClothing.png",
+    "video": "barneslowClothing.mov",
+    "build": ["React", "Firebase"],
+    "github": "https://github.com/Barneslow/barneslow-clothing"
+  },
+  {
+    "id": "9",
+    "name": "Barneslow Clothing",
+    "description": "Front end Ecommerce website built using React/Redux. Use of Stripe for payment processing",
+    "text": "dummy",
+    "url": "https://barneslow-clothing.netlify.app/",
+    "image": "barneslowClothing.png",
+    "video": "barneslowClothing.mov",
+    "build": ["React", "Firebase"],
+    "github": "https://github.com/Barneslow/barneslow-clothing"
+  },
+  {
+    "id": "10",
+    "name": "Barneslow Clothing",
+    "description": "Front end Ecommerce website built using React/Redux. Use of Stripe for payment processing",
+    "text": "dummy",
+    "url": "https://barneslow-clothing.netlify.app/",
+    "image": "barneslowClothing.png",
+    "video": "barneslowClothing.mov",
+    "build": ["React", "Firebase"],
+    "github": "https://github.com/Barneslow/barneslow-clothing"
+  },
+  {
+    "id": "11",
+    "name": "Barneslow Clothing",
+    "description": "Front end Ecommerce website built using React/Redux. Use of Stripe for payment processing",
+    "text": "dummy",
+    "url": "https://barneslow-clothing.netlify.app/",
+    "image": "barneslowClothing.png",
+    "video": "barneslowClothing.mov",
+    "build": ["React", "Firebase"],
+    "github": "https://github.com/Barneslow/barneslow-clothing"
+  },
+  {
+    "id": "12",
+    "name": "Barneslow Clothing",
+    "description": "Front end Ecommerce website built using React/Redux. Use of Stripe for payment processing",
+    "text": "dummy",
+    "url": "https://barneslow-clothing.netlify.app/",
+    "image": "barneslowClothing.png",
+    "video": "barneslowClothing.mov",
+    "build": ["React", "Firebase"],
+    "github": "https://github.com/Barneslow/barneslow-clothing"
   }
 ]

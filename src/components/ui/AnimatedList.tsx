@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const AnimatedList = () => {
   const animation = useAnimation();
-  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.9 });
+  const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.5 });
 
   const container = {
     initial: {},
@@ -35,7 +35,7 @@ const AnimatedList = () => {
       animate={animation}
       variants={container}
       initial="initial"
-      className="flex flex-col space-y-3 items-center w-full"
+      className="flex flex-col space-y-2 items-center w-full"
     >
       <motion.li
         variants={child}

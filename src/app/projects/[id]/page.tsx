@@ -8,7 +8,9 @@ import VideoBox from "@/components/ui/VideoBox";
 import IconLink from "@/components/ui/IconLink";
 import { faFileLines } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import Icons from "@/components/ui/Icons";
+import Icons from "@/components/icons/Icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { GitHub, WebsiteIcon } from "@/components/icons/ButtonIcons";
 
 interface ProjectPageProps {
   params: { id: string };
@@ -35,60 +37,45 @@ const page: FC<ProjectPageProps> = ({ params }: ProjectPageProps) => {
   return (
     <section
       id="project"
-      className="flex item-center justify-center bg-gradient-to-t from-zinc-300 dark:bg-zinc-900 dark:from-zinc-900 px-10 min-h-screen mt-24"
+      className="flex item-center justify-center bg-gradient-to-t from-zinc-300 dark:bg-zinc-900 dark:from-zinc-900 px-10 min-h-screen pb-10"
     >
-      <div
-        key="test"
-        // transition={{ duration: 0.5 }}
-        // exit={{ x: "-100vw" }}
-        className={styles.container}
-      >
-        <div className={styles.header}>
-          <TypeWriter className={styles.heading} text={`${name}`} />
+      <div className="flex flex-col space-y-5 lg:space-y-16">
+        <div className="flex items-center justify-center pt-5">
+          <TypeWriter
+            className="text-4xl py-2 font-extrabold lg:text-6xl "
+            text={`${name}`}
+          />
         </div>
-
-        <div className={styles["content-box"]}>
-          <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <div className="grid items-center justify-center max-w-7xl  gap-8 lg:grid-cols-2 ">
+          <div className="flex flex-col h-full space-y-6">
             <VideoBox image={image} video={video} />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                marginTop: 10,
-              }}
-            >
-              <h3>Built With</h3>
+            <div className="flex flex-col justify-center items-center">
+              <h3 className="text-xl">Built With</h3>
               <Icons icons={build} />
             </div>
           </div>
-          <div
-            className={styles["text-container"]}
-            // transition={{ duration: 0.5, delay: 1 }}
-          >
-            <h3 className={styles["sub-heading"]}>{description}</h3>
-            <p className={styles.text}>{text}</p>
-            <div
-              style={{
-                display: "flex",
-                width: "100%",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-              }}
-            >
-              <IconLink
-                linkClass={styles.link}
-                icon={faFileLines}
-                url={url}
-                text={`Visit ${name} here!`}
-              />
-              <IconLink
-                linkClass={styles.link}
-                icon={faGithub}
-                url={github}
-                text="Source Code!"
-              />
+          <div className="flex flex-col justify-center items-center space-y-6 text-center">
+            <h3 className="text-2xl font-bold">{description}</h3>
+            <p className="text-xl font-light">{text}</p>
+            <div className="flex justify-evenly w-full space-x-4 items-center mt-3 text-sm">
+              <a
+                target="_blank"
+                href={url}
+                className="group btn border 1 border-zinc-700 bg-sky-500 flex flex-col hover:bg-sky-600"
+              >
+                <div className="h-10 w-10">
+                  <WebsiteIcon />
+                </div>
+              </a>
+              <a
+                target="_blank"
+                href={github}
+                className=" group btn border 1 border-zinc-700 bg-orange-500 flex flex-col hover:bg-orange-600"
+              >
+                <div className="h-10 w-10 ">
+                  <GitHub />
+                </div>
+              </a>
             </div>
           </div>
         </div>

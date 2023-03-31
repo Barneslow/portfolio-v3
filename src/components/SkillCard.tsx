@@ -1,94 +1,97 @@
 "use client";
 
-import { PaintBrushIcon } from "./icons/SkillsIcons";
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
+import { TRUE } from "sass";
+import AnimatedList from "./ui/AnimatedList";
 
-const SkillCard = () => {
+type BorderColor = {
+  light: string;
+  dark: string;
+  borderLight: string;
+  borderDark: string;
+};
+
+interface SkillCardProps {
+  children: ReactNode;
+  title: string;
+  description: string;
+  heading?: string;
+  categories?: string;
+  color: BorderColor;
+  list?: string[];
+  build?: boolean;
+  index: number;
+}
+
+const SkillCard = ({
+  children,
+  title,
+  description,
+  categories,
+  color,
+  heading,
+  list,
+  build,
+  index,
+}: SkillCardProps) => {
+  const hidden = {
+    opacity: 0,
+    y: 50,
+  };
+
+  const visible = {
+    opacity: 1,
+    y: 0,
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center p-5 space-y-4 border-t-green-800 border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-green-500">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{
+        duration: 1,
+        type: "spring",
+        bounce: 0.5,
+        delay: index * 0.25,
+      }}
+      variants={{
+        visible,
+        hidden,
+      }}
+      className={`flex flex-col items-center justify-center w-fit text-center p-2 space-y-4 ${color.borderLight} border-t-8 shadow-2xl rounded-lg bg-zinc-100 dark:bg-zinc-700 ${color.borderDark}`}
+    >
       <div className="w-24 h-24 p-2 bg-zinc-50 rounded-3xl border-black border-2">
-        <PaintBrushIcon />
+        {children}
       </div>
-      <h4 className="text-3xl font-extrabold text-green-800 dark:text-green-500">
-        Designer
+      <h4 className={`text-2xl font-extrabold ${color.light} ${color.dark}`}>
+        {title}
       </h4>
-      <p className="max-w-md text-lg">
-        Minimalistic content structure with clean, colourful design patterns.
-        Varied animations to a page to life!
-      </p>
-      <h5 className="text-2xl font-extrabold text-green-800 border-b-2 border-zinc-300  dark:text-green-500">
-        Things I enjoy designing
+      <p className="max-w-sm text-lg tracking-wide">{description}</p>
+      <h5
+        className={`text-xl font-extrabold ${color.light} border-b border-zinc-300 ${color.dark}`}
+      >
+        {heading}
       </h5>
-      <p className="text-lg">UX, UI, Web, Apps, Logos</p>
-      <h5 className="text-2xl font-extrabold text-green-800 border-b-2 border-zinc-300  dark:text-green-500">
+      <p className="text-md">{categories}</p>
+      <h5
+        className={`text-xl font-extrabold ${color.light} border-b border-zinc-300 ${color.dark}`}
+      >
         Tools Used
       </h5>
-      <ul className="flex flex-col space-y-2">
-        <li className="text-lg">Framer Motion</li>
-        <li className="text-lg">React-Native-Reanimated</li>
-        <li className="text-lg">Tailwind / CSS / Sass</li>
-        <li className="text-lg">Figma</li>
-        <li className="text-lg">Photoshop</li>
-      </ul>
-    </div>
+
+      {build ? (
+        <AnimatedList />
+      ) : (
+        <ul className="flex flex-col space-y-2">
+          {list?.map((item) => (
+            <li className="text-md">{item}</li>
+          ))}
+        </ul>
+      )}
+    </motion.div>
   );
 };
 
-// export default SkillCard;
-
-// "use client";
-
-// import { PaintBrushIcon } from "./icons/SkillsIcons";
-
-// type SkillsCardProps = {
-//   title: string;
-//   description: string;
-//   heading?: string;
-//   skills?: string;
-//   tools: string[];
-//   color: string;
-// };
-
-// const SkillCard = ({
-//   color,
-//   title,
-//   description,
-//   tools,
-//   heading,
-//   skills,
-// }: SkillsCardProps) => {
-//   return (
-//     <div
-//       className={`flex flex-col items-center justify-center h-full text-center p-5 space-y-4 border-t-${color} border-t-8 shadow-md rounded-lg bg-zinc-50 dark:bg-zinc-700 dark:border-t-${color}`}
-//     >
-//       <div className="w-24 h-24 p-2 bg-zinc-50 rounded-3xl border-black border-2">
-//         <PaintBrushIcon />
-//       </div>
-//       <h4
-//         className={`text-3xl font-extrabold text-${color} dark:text-amber-300`}
-//       >
-//         {title}
-//       </h4>
-//       <p className="max-w-md text-lg">{description}</p>
-//       {heading && (
-//         <h5
-//           className={`text-2xl font-extrabold text-${color} border-b-2 border-zinc-300  dark:text-amber-300`}
-//         >
-//           {heading}
-//         </h5>
-//       )}
-//       {skills && <p className="text-lg">{skills}</p>}
-//       <h5
-//         className={`text-2xl font-extrabold text-${color} border-b-2 border-zinc-300  dark:text-amber-300`}
-//       >
-//         Tools Used
-//       </h5>
-//       <ul className="flex flex-col space-y-2">
-//         {tools.map((tool) => (
-//           <li className="text-lg">{tool}</li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-// export default SkillCard;
+export default SkillCard;

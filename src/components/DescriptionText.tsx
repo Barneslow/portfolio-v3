@@ -20,14 +20,14 @@ const DescriptionText = ({ heading, text }: DescriptionText) => {
 
   return (
     <div
-      className="flex flex-col items-center space-y-9 text-center md:text-left mb-20"
+      className="flex flex-col items-center space-y-9 text-center md:text-left"
       style={options}
       ref={ref}
     >
-      <h2 className="text-4xl font-extrabold text-zinc-900  dark:text-zinc-50 md:text-5xl">
+      <h2 className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-50 md:text-4xl">
         {heading}
       </h2>
-      <p className="max-w-4xl text-xl text-zinc-900 mx-auto text-center tracking-widest dark:text-zinc-50 ">
+      <p className="max-w-4xl text-md md:text-xl text-zinc-900 mx-auto text-center tracking-widest dark:text-zinc-50 ">
         {text}
       </p>
     </div>

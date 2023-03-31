@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 type TyperWriterProps = {
   text: string;
-  className: string;
+  className?: string;
   delay?: number;
 };
 

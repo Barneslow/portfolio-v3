@@ -3,9 +3,10 @@
 import { Permanent_Marker } from "next/font/google";
 import Link from "next/link";
 
-import { motion } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import { child, container } from "@/animations/nav-animations";
 import { ThemeToggle } from "./ui/ThemeToggle";
+import { MobileMenu } from "./ui/MobileMenu";
 
 const marker = Permanent_Marker({
   weight: ["400"],
@@ -14,7 +15,7 @@ const marker = Permanent_Marker({
 
 const Navbar = () => {
   return (
-    <nav className="fixed backdrop-blur-sm bg-zinc-100 dark:bg-zinc-800 z-50 top-0 left-0 right-0 h-20 border-b border-slate-300 dark:slate-300 shadow-sm flex items-center justify-between">
+    <motion.nav className="fixed backdrop-blur-sm px-2 md:px-4 bg-zinc-100 dark:bg-zinc-800 z-50 top-0 left-0 right-0 h-16 border-b border-slate-300 dark:slate-300 shadow-sm flex items-center justify-between">
       <div className="container max-w-7xl mx-auto w-full flex justify-between item-center">
         <Link
           href="/"
@@ -23,7 +24,7 @@ const Navbar = () => {
         >
           Barneslow
         </Link>
-
+        <MobileMenu />
         <motion.ul
           variants={container}
           initial="initial"
@@ -53,7 +54,7 @@ const Navbar = () => {
           </motion.li>
         </motion.ul>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 

@@ -29,7 +29,7 @@ const VideoBox = ({ image, video }: VideoBoxProps) => {
       animate={{ opacity: 1, scale: 1 }}
       initial={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 1, delay: 0.5 }}
-      className={styles["video-container"]}
+      className="group relative flex overflow-hidden rounded-xl border border-zinc-50"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -39,18 +39,13 @@ const VideoBox = ({ image, video }: VideoBoxProps) => {
         width="0"
         height="0"
         sizes="100vw"
-        className={styles["overlay-image"]}
+        className="absolute top-0 left-0 right-0 bottom-0 w-full h-full group-hover:opacity-0 duration-1000"
       />
 
-      <FontAwesomeIcon icon={faPlay} className={styles["overlay-icon"]} />
       <video
         ref={videoRef}
         src={`/videos/${video}`}
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "black",
-        }}
+        className="h-full w-full"
         muted
       />
     </motion.div>

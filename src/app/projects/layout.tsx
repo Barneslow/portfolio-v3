@@ -15,11 +15,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en">
-      <body className={lato.className}>
-        <main className="">{children}</main>
-      </body>
-    </html>
-  );
+  return <section className="h-full pt-20">{children}</section>;
 }

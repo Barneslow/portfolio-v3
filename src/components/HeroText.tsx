@@ -13,15 +13,15 @@ const HeroText = () => {
     >
       <motion.h1
         variants={child}
-        className="text-3xl font-extrabold uppercase md:text-6xl"
+        className="text-2xl font-extrabold uppercase md:text-6xl"
       >
         Designer, Marketer & FullStack Developer
       </motion.h1>
-      <motion.h3 variants={child} className="text-2xl font-bold md:text-4xl">
+      <motion.h3 variants={child} className="text-xl font-bold md:text-2xl">
         I love to design beautiful, user-friendly interfaces and code simple,
         elegant projects
       </motion.h3>
-      <motion.p variants={child} className="text-lg italic">
+      <motion.p variants={child} className="text-sm md:text-lg italic">
         Trying to make a positive impact on the world
       </motion.p>
     </motion.div>
