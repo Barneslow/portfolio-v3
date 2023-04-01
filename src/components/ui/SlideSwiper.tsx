@@ -1,72 +1,167 @@
 "use client";
 
-import { ChartIcon, CodeIcon, PaintBrushIcon } from "../icons/SkillsIcons";
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  ChartIcon,
+  CodeIcon,
+  LearningIcon,
+  PaintBrushIcon,
+  StackIcon,
+} from "../icons/SkillsIcons";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation } from "swiper";
 
 import SkillCard from "../SkillCard";
 
 export default function SlideSwiper() {
   return (
-    <div className="flex flex-col overfollow-scroll space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0">
-      <SkillCard
-        index={0}
-        color={{
-          light: "text-green-800",
-          dark: "dark:text-green-400",
-          borderLight: "border-green-800",
-          borderDark: "dark:border-green-400",
-        }}
-        heading="Designer"
-        description="Minimalistic content structure with clean, colourful design patterns.
+    <Swiper
+      navigation={true}
+      loop={true}
+      centeredSlides={true}
+      modules={[Navigation]}
+      className="mySwiper"
+      slidesPerView={3}
+      // breakpoints={{
+      //   0: {
+      //     width: 0,
+      //     slidesPerView: 1,
+      //   },
+      //   768: {
+      //     width: 768,
+      //     slidesPerView: 2,
+      //   },
+      //   1200: {
+      //     width: 1200,
+      //     slidesPerView: 3,
+      //   },
+      // }}
+    >
+      <SwiperSlide>
+        <SkillCard
+          index={0}
+          color={{
+            light: "text-green-800",
+            dark: "dark:text-green-300",
+            borderLight: "border-green-800",
+            borderDark: "dark:border-green-300",
+          }}
+          heading="Things I enjoy designing"
+          description="Minimalistic content structure with clean, colourful design patterns.
         Varied animations to a page to life!"
-        title="Plaforms used"
-        categories="UX, UI, Web, Apps, Logos"
-        list={[
-          "Framer Motion",
-          "React-Native-Reanimated",
-          "Photoshop",
-          "Tailwind / CSS / Sass",
-          "Figma",
-        ]}
-        children={<PaintBrushIcon />}
-      />
+          title="Designer"
+          categories="UX, UI, Web, Apps, Logos"
+          list={[
+            "Framer Motion",
+            "React-Native-Reanimated",
+            "Photoshop",
+            "Tailwind / CSS / Sass",
+            "Figma",
+          ]}
+          children={<PaintBrushIcon />}
+        />
+      </SwiperSlide>
 
-      <SkillCard
-        index={1}
-        color={{
-          light: "text-blue-800",
-          dark: "dark:text-blue-400",
-          borderLight: "border-blue-800",
-          borderDark: "dark:border-blue-400",
-        }}
-        title="Developer"
-        description=" Writing elegant, legible and reusable code. Imagination and creation!
+      <SwiperSlide>
+        <SkillCard
+          index={1}
+          color={{
+            light: "text-blue-800",
+            dark: "dark:text-blue-300",
+            borderLight: "border-blue-800",
+            borderDark: "dark:border-blue-300",
+          }}
+          title="Developer"
+          description=" Writing elegant, legible and reusable code. Imagination and creation!
         Tackling problems and finding solutions!"
-        build
-        children={<CodeIcon />}
-      />
-
-      <SkillCard
-        index={2}
-        color={{
-          light: "text-red-800",
-          dark: "dark:text-red-400",
-          borderLight: "border-red-800",
-          borderDark: "dark:border-red-400",
-        }}
-        heading="Marketer"
-        description="Running million dollar social media campaigns. Designing, analysing
+          build={[
+            "javascript",
+            "html",
+            "css",
+            "react",
+            "nextjs",
+            "react-native",
+            "tailwind",
+            "nodejs",
+            "typescript",
+            "mongodb",
+            "firebase",
+            "aws",
+          ]}
+          children={<CodeIcon />}
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <SkillCard
+          index={2}
+          color={{
+            light: "text-red-800",
+            dark: "dark:text-red-300",
+            borderLight: "border-red-800",
+            borderDark: "dark:border-red-300",
+          }}
+          heading="Platforms Used"
+          description="Running million dollar social media campaigns. Designing, analysing
           and scaling across all major platforms"
-        title="Plaforms used"
-        categories="Facebook, Snapchat, Tiktok, Twitter, Instagram"
-        list={[
-          "Photoshop / PremierPro / Canva",
-          "Unbounce / ClickFunnels",
-          "Internal campaign managers",
-          "Wordpress",
-          "Voluum",
-        ]}
-        children={<ChartIcon />}
-      />
-    </div>
+          title="Marketer"
+          categories="Facebook, Snapchat, Tiktok, Twitter, Instagram"
+          list={[
+            "Photoshop / PremierPro / Canva",
+            "Unbounce / ClickFunnels",
+            "Internal campaign managers",
+            "Wordpress",
+            "Voluum",
+          ]}
+          children={<ChartIcon />}
+        />
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <SkillCard
+          index={0}
+          color={{
+            light: "text-purple-800",
+            dark: "dark:text-purple-300",
+            borderLight: "border-purple-800",
+            borderDark: "dark:border-purple-300",
+          }}
+          description="Reformed MERN stack enthusiasit. NEXTJS serverless with AWS/Google Cloud platform. Most comfortable using NOSQL databases but utilise SQL for smaller applications"
+          title="Development Stacks"
+          build={[
+            "nextjs",
+            "prisma",
+            "typescript",
+            "mongodb",
+            "express",
+            "nodejs",
+            "airtable",
+            "firebase",
+            "aws",
+          ]}
+          children={<StackIcon />}
+        />
+      </SwiperSlide>
+
+      <SwiperSlide>
+        <SkillCard
+          index={0}
+          color={{
+            light: "text-yellow-600",
+            dark: "dark:text-yellow-300",
+            borderLight: "border-yellow-600",
+            borderDark: "dark:border-yellow-300",
+          }}
+          description="With the constantly evolving world of web technologies, there's so much to learn, and I'm excited to dive in."
+          title="Wishlist Learning"
+          build={["python", "aws", "threejs", "svelte", "django", "jest"]}
+          children={<LearningIcon />}
+        />
+      </SwiperSlide>
+    </Swiper>
   );
 }

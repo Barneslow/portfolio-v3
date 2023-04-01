@@ -9,7 +9,7 @@ const HeroText = () => {
       variants={container}
       initial="initial"
       animate="animate"
-      className="flex flex-col space-y-4 max-w-5xl text-zinc-900  dark:text-zinc-50 md:space-y-8"
+      className="flex flex-col space-y-4 max-w-5xl  text-zinc-900  dark:text-zinc-50 md:space-y-8 md:w-8/12"
     >
       <motion.h1
         variants={child}

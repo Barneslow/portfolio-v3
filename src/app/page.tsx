@@ -20,12 +20,9 @@ export default function Home() {
         className="relative section-1 min-h-screen flex items-center"
       >
         {/* <div className="absolute bg-image h-full w-full top-0 bottom-0 left-0 right-0 opacity-20"></div> */}
-        <div className="container flex items-center text-center flex-col-reverse mx-auto gap-6 p-6 lg:flex-row lg:text-left lg:gap-0">
+        <div className="container flex items-center text-center flex-col mx-auto gap-6 p-6 lg:flex-row lg:text-left lg:gap-0">
           <HeroText />
-          <div className="relative w-full rounded-2xl aspect-square overflow-hidden  md:w-96">
-            <ComputerModelCanvas />
-          </div>
-          {/* <HeroImage /> */}
+          <ComputerModelCanvas />
         </div>
       </section>
 

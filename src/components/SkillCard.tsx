@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { TRUE } from "sass";
 import AnimatedList from "./ui/AnimatedList";
 
 type BorderColor = {
@@ -20,7 +19,7 @@ interface SkillCardProps {
   categories?: string;
   color: BorderColor;
   list?: string[];
-  build?: boolean;
+  build?: string[];
   index: number;
 }
 
@@ -49,7 +48,7 @@ const SkillCard = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={{ once: false, amount: 0.25 }}
       transition={{
         duration: 1,
         type: "spring",
@@ -78,11 +77,11 @@ const SkillCard = ({
       <h5
         className={`text-xl font-extrabold ${color.light} border-b border-zinc-300 ${color.dark}`}
       >
-        Tools Used
+        Tools
       </h5>
 
       {build ? (
-        <AnimatedList />
+        <AnimatedList list={build} />
       ) : (
         <ul className="flex flex-col space-y-2">
           {list?.map((item) => (
