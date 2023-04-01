@@ -12,9 +12,10 @@ import {
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // import required modules
-import { Navigation } from "swiper";
+import { Navigation, Pagination } from "swiper";
 
 import SkillCard from "../SkillCard";
 
@@ -22,25 +23,21 @@ export default function SlideSwiper() {
   return (
     <Swiper
       navigation={true}
-      loop={true}
-      centeredSlides={true}
-      modules={[Navigation]}
+      modules={[Navigation, Pagination]}
+      pagination={{
+        clickable: true,
+      }}
+      centeredSlides
       className="mySwiper"
       slidesPerView={3}
-      // breakpoints={{
-      //   0: {
-      //     width: 0,
-      //     slidesPerView: 1,
-      //   },
-      //   768: {
-      //     width: 768,
-      //     slidesPerView: 2,
-      //   },
-      //   1200: {
-      //     width: 1200,
-      //     slidesPerView: 3,
-      //   },
-      // }}
+      breakpoints={{
+        0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+      }}
     >
       <SwiperSlide>
         <SkillCard
